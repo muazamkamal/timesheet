@@ -1,4 +1,5 @@
 <script lang="ts">
+  import './tailwind.pcss';
   import Footer from './Footer.svelte';
   import dayjs from 'dayjs';
   import dayjsBusinessTime from 'dayjs-business-time';
@@ -36,7 +37,7 @@
   <div class="flex items-end"><Footer /></div>
 </main>
 
-<style>
+<style lang="postcss">
   .main-container {
     grid-template-rows: 1fr auto 1fr;
     grid-template-columns: 1fr;
