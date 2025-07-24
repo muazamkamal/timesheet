@@ -30,10 +30,16 @@
     }
   }
 
-  function timeSheetClicked() {
+  function timeSheetClicked(event: MouseEvent) {
     let url = $timesheetUrl;
 
     if (url) {
+      // Clears URL if ctrl clicking, and exit out
+      if (event.ctrlKey) {
+        handleTimeSheetClearing();
+        return;
+      }
+
       window.open(url, '_self');
     } else {
       const enteredUrl = prompt(
@@ -44,6 +50,14 @@
         initialiseTimeSheetURL(enteredUrl);
       }
     }
+  }
+
+  function handleTimeSheetClearing() {
+    const confirmClear = confirm(
+      'Are you sure you want to clear the currently set TimeSheet URL?',
+    );
+
+    if (confirmClear) timesheetUrl.set('');
   }
 </script>
 
